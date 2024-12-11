@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Education</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #f4f4f9;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+        }
+        .tabs {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+            padding: 10px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        .tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            background-color: #333;
+            color: white;
+            margin: 0 5px;
+            border-radius: 5px 5px 0 0;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .tab:hover {
+            background-color: #555;
+        }
+        .tab.active {
+            background-color: #fff;
+            color: #333;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .tab-content {
+            display: none;
+            flex-grow: 1;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-top: none;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin: 0;
+            width: 100%;
+            height: calc(100% - 60px); /* Adjust for tab height */
+            overflow: auto;
+            border-radius: 0 0 10px 10px;
+        }
+        .tab-content.active {
+            display: flex;
+            flex-direction: column;
+        }
+        .tab-content h2 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            color: white;
+        }
+        .tab-content p {
+            color: red;
+            font-size: 1.2em;
+        }
+        #mathematics.tab-content, #science.tab-content, #history.tab-content, #social-studies.tab-content, #geography.tab-content, #biology.tab-content, #chemistry.tab-content {
+            background-color: #000;
+            color: white;
+            position: relative;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 10px;
+            margin-top: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            flex-grow: 1;
+        }
+        #myButton {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #000;
+            color: #fff;
+            padding: 5px 10px;
+            font-size: 12px;
+            border: none;
+            cursor: pointer;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 30%;
+            border-radius: 10px;
+        }
+        .modal-content .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .modal-content input {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="tabs">
+    <div class="tab active" data-tab="mathematics">Mathematics</div>
+    <div class="tab" data-tab="science">Science</div>
+    <div class="tab" data-tab="history">History</div>
+    <div class="tab" data-tab="social-studies">Social Studies</div>
+    <div class="tab" data-tab="geography">Geography</div>
+    <div class="tab" data-tab="biology">Biology</div>
+    <div class="tab" data-tab="chemistry">Chemistry</div>
+</div>
+
+<div class="tab-content active" id="mathematics">
+    <h2>Mathematics</h2>
+    <button id="myButton">Hidden Button</button>
+    <p>come to me for the password</p>
+    <iframe src="https://en.wikipedia.org/wiki/Mathematics" title="Mathematics Wikipedia Page"></iframe>
+</div>
+<div class="tab-content" id="science">
+    <h2>Science</h2>
+    <button id="myButton"></button>
+    <p>come to me for the password</p>
+    <iframe src="https://en.wikipedia.org/wiki/Science" title="Science Wikipedia Page"></iframe>
+</div>
+<div class="tab-content" id="history">
+    <h2>History</h2>
+    <button id="myButton">Hidden Button</button>
+    <p>come to me for the password</p>
+    <iframe src="https://en.wikipedia.org/wiki/History" title="History Wikipedia Page"></iframe>
+</div>
+<div class="tab-content" id="social-studies">
+    <h2>Social Studies</h2>
+    <button id="myButton">Hidden Button</button>
+    <p>come to me for the password</p>
+    <iframe src="https://en.wikipedia.org/wiki/Social_studies" title="Social Studies Wikipedia Page"></iframe>
+</div>
+<div class="tab-content" id="geography">
+    <h2>Geography</h2>
+    <button id="myButton">Hidden Button</button>
+    <p>come to me for the password</p>
+    <iframe src="https://en.wikipedia.org/wiki/Geography" title="Geography Wikipedia Page"></iframe>
+</div>
+<div class="tab-content" id="biology">
+    <h2>Biology</h2>
+    <button id="myButton">Hidden Button</button>
+    <p>come to me for the password</p>
+    <iframe src="https://en.wikipedia.org/wiki/Biology" title="Biology Wikipedia Page"></iframe>
+</div>
+<div class="tab-content" id="chemistry">
+    <h2>Chemistry</h2>
+    <button id="myButton">Hidden Button</button>
+    <p>come to me for the password</p>
+    <iframe src="https://en.wikipedia.org/wiki/Chemistry" title="Chemistry Wikipedia Page"></iframe>
+</div>
+
+<div id="passwordModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <input type="text" id="passwordInput" placeholder="Enter password">
+    </div>
+</div>
+
+<script>
+    const tabs = document.querySelectorAll('.tab');
+    const contents = document.querySelectorAll('.tab-content');
+
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            // Remove active class from all tabs and contents
+            tabs.forEach(t => t.classList.remove('active'));
+            contents.forEach(c => c.classList.remove('active'));
+
+            // Add active class to the clicked tab and corresponding content
+            tab.classList.add('active');
+            document.getElementById(tab.dataset.tab).classList.add('active');
+        });
+    });
+
+    const button = document.getElementById('myButton');
+    const modal = document.getElementById('passwordModal');
+    const closeButton = document.querySelector('.modal-content .close');
+    const passwordInput = document.getElementById('passwordInput');
+
+    button.addEventListener('click', () => {
+        modal.style.display = 'block';
+        passwordInput.focus();
+    });
+
+    closeButton.addEventListener('click', () => {
+        modal.style.display = 'none';
+    });
+
+    window.addEventListener('click', (event) => {
+        if (event.target == modal) {
+            modal.style.display = 'none';
+        }
+    });
+
+    passwordInput.addEventListener('keyup', (event) => {
+        if (event.key === 'Enter') {
+            if (passwordInput.value === '8095') {
+                modal.style.display = 'none';
+                const newWindow = window.open('about:blank', '_blank');
+                newWindow.document.write('<iframe src="https://abyss-web-7em9.vercel.app/" style="width: 100%; height: 100%; border: none;"></iframe>');
+            } else {
+                alert('Incorrect password');
+            }
+        }
+    });
+</script>
+
+</body>
+</html>
